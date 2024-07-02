@@ -956,12 +956,12 @@
       }
     ],
     "address": "0x43ddbff1c3e0e80e9ca57b47d6a17b078fc0b7257536d74a4a05a42a46fc946",
-    "transaction_hash": "0x78bfdd13e631f5c9a34e633126401067193f6c33a6f31bb34c6353b88b0171f",
+    "transaction_hash": "0x57020218c38eaa8edcb2d0f6cab12bc3aa3af60faed9c0b860bcde6de1bac92",
     "block_number": 3,
     "seed": "bootcamp",
     "metadata": {
       "profile_name": "dev",
-      "rpc_url": "http://localhost:5050/"
+      "rpc_url": "https://api.cartridge.gg/x/color-grid-demo/katana"
     },
     "name": "dojo::world::world"
   },
