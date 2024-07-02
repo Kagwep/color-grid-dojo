@@ -13,9 +13,9 @@ export type SetupResult = Awaited<ReturnType<typeof setup>>;
 
 export async function setup({ ...config }: DojoConfig) {
 
-    // console.log(config.rpcUrl)
-    // console.log(config.manifest.world.address)
-    // console.log(config.toriiUrl)
+    console.log(config.rpcUrl)
+    console.log(config.manifest.world.address)
+    console.log(config.toriiUrl)
 
     // torii client
     const toriiClient = await torii.createClient([], {
@@ -26,8 +26,6 @@ export async function setup({ ...config }: DojoConfig) {
     });
 
     console.log(toriiClient)
-
-   
 
     // create contract components
     const contractComponents = defineContractComponents(world);
@@ -43,7 +41,6 @@ export async function setup({ ...config }: DojoConfig) {
     );
 
  
-
     // create dojo provider
     const dojoProvider = new DojoProvider(config.manifest, config.rpcUrl);
 
