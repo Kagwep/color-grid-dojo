@@ -8,7 +8,7 @@ mod tests {
     // import test utils
     use bootcamp::{
         systems::{actions::{actions, IActionsDispatcher, IActionsDispatcherTrait}},
-        models::{player::{Player,player}, Tile::{Tile, tile}}
+        models::{player::{Player,player}, tile::{Tile, tile}}
     };
 
     const PLAYER_ONE: u32 = 1;
@@ -31,7 +31,7 @@ mod tests {
 
     fn spawn() -> (IWorldDispatcher, IActionsDispatcher){
 
-        starknet::testing::set_contract_address(player_one_address())
+        starknet::testing::set_contract_address(player_one_address());
 
         let (world, actions_system) = setup();
 
@@ -44,10 +44,10 @@ mod tests {
 
     const TILE_X: u16 = 1;
     const TILE_Y: u16 = 1;
-    const TILE_COLOR: felt252 = red;
+    const TILE_COLOR: felt252 = 'red';
 
 
-    fn place() -> (WorldDispatcher, ActionsDispatcher) {
+    fn place() -> (IWorldDispatcher, IActionsDispatcher) {
         // Set the contract address for a player (assuming this is part of a test setup)
         starknet::testing::set_contract_address(player_one_address());
     
@@ -62,25 +62,25 @@ mod tests {
     }
     
     #[test]
-    #[allowable_gas(3000000)]
+    #[available_gas(30000000)]
     fn test_spawn() {
         // Setup world
         let (world, _) = spawn();
 
         // Assert
         let player = get!(world, (player_one_address()), Player);
-        assert(player.address == player_one_address(), "address is wrong");
+        assert(player.address == player_one_address(), 'address is wrong');
     }
 
     #[test]
-    #[available_gas(3000000)]
+    #[available_gas(30000000)]
     fn test_place() {
         // Setup world
         let (world, _) = place();
 
         // Assert
-        let tile = get!(world, TILE_X, TILE_Y, Tile);
-        assert!(tile.color == TILE_COLOR, "tile not red");
+        let tile = get!(world, (TILE_X, TILE_Y), Tile);
+        assert(tile.color == TILE_COLOR, 'tile not red');
     }
 
 
